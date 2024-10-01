@@ -35,26 +35,3 @@ nav {
     display: none;
   }
   
-  @media (max-width: 768px) {
-    nav ul {
-      display: none;
-      flex-direction: column;
-      width: 100%;
-      background-color: #333;
-    }
-  
-    nav ul li {
-      text-align: center;
-      margin: 10px 0;
-    }
-  
-    nav ul.showing {
-      display: flex;
-    }
-  
-    .nav-toggle {
-      display: block;
-      cursor: pointer;
-    }
-  }
-  

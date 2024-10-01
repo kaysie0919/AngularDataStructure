@@ -5,12 +5,13 @@ import { CommonModule } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule } from "@angular/forms";
+import { StudentlistComponent } from "./components/studentlist/studentlist.component";
 
 
 
 
 const routes: Routes = [
-    {path: '', component: AppComponent},
+    {path: '', component: StudentlistComponent},
 ]
 
 @NgModule ({
@@ -24,6 +25,7 @@ const routes: Routes = [
 
     declarations: [
         AppComponent,
+        StudentlistComponent,
     ],
 
     providers: [
