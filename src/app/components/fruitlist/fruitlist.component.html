@@ -1,0 +1,7 @@
+<p>Fruit List</p>
+<input type="text" [(ngModel)]="fruit" placeholder="Add Fruit"/>
+<button (click)="Add()">Add</button>
+
+<ul>
+    <li *ngFor="let fruits of fruitList">{{fruits}}</li>
+</ul>
