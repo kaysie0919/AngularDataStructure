@@ -3,20 +3,26 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-studentlist',
   templateUrl: './studentlist.component.html',
-  styleUrl: './studentlist.component.css'
+  styleUrls: ['./studentlist.component.css']
 })
 export class StudentlistComponent {
 
-  list: string = '';
+  name: string = '';
+  course: string = '';
+  section: string = '';
   studentList: string[] = [];
 
   addItem() {
-    if (this.list.trim()) {
-      this.studentList.push(this.list.trim());
-      this.list = '';
+    if (this.name.trim() && this.course.trim() && this.section.trim()) {
+      const studentInfo = `${this.name.trim()} - Course: ${this.course.trim()}, Section: ${this.section.trim()}`;
+      this.studentList.push(studentInfo);
+
+      this.name = '';
+      this.course = '';
+      this.section = '';
     }
     else {
-      return;
+      console.log('Please fill out all fields.');
     }
   }
 }
