@@ -1,0 +1,7 @@
+<p>Course List</p>
+<input type="text" [(ngModel)]="course" placeholder="Add Course"/>
+<button (click)="Add()">Add</button>
+
+<ul>
+    <li *ngFor="let courses of courseList">{{courses}}</li>
+</ul>
