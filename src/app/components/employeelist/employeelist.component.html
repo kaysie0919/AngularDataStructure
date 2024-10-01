@@ -1,0 +1,10 @@
+<p>Employee List</p>
+
+<input type="text" [(ngModel)]="name" placeholder="Enter Name"/>
+<input type="text" [(ngModel)]="job" placeholder="Enter Job"/>
+<input type="text" [(ngModel)]="position" placeholder="Enter Position"/>
+<button (click)="Add()">Add</button>
+
+<ul>
+    <li *ngFor="let employyee of employeelist">{{employyee}}</li>
+</ul>
