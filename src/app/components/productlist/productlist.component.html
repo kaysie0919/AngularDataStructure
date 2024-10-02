@@ -1,0 +1,6 @@
+<p>Product List</p>
+<input type="text" id="product" [(ngModel)]="product" placeholder="Enter product name">
+  <button (click)="addProduct()">Add Product</button>
+  <ul>
+    <li *ngFor="let product of productList">{{ product }}</li>
+  </ul>
