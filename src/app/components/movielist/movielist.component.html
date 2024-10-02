@@ -1,0 +1,6 @@
+<p>Movie List</p>
+<input type="text" id="movie" [(ngModel)]="movie" placeholder="Enter movie name">
+<button (click)="addMovie()">Add Movie</button>
+  <ul>
+    <li *ngFor="let movie of movieList">{{ movie }}</li>
+  </ul>
