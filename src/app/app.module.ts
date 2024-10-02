@@ -12,6 +12,7 @@ import { CourselistComponent } from "./components/courselist/courselist.componen
 import { BooklistComponent } from "./components/booklist/booklist.component";
 import { CitylistComponent } from "./components/citylist/citylist.component";
 import { MovielistComponent } from "./components/movielist/movielist.component";
+import { CarmodellistComponent } from "./components/carmodellist/carmodellist.component";
 
 
 
@@ -24,6 +25,7 @@ const routes: Routes = [
     {path: 'boolist', component: BooklistComponent},
     {path: 'citlist', component: CitylistComponent},
     {path: 'movlist', component: MovielistComponent},
+    {path: 'carlist', component: CarmodellistComponent},
 ]
 
 @NgModule ({
@@ -44,6 +46,7 @@ const routes: Routes = [
         BooklistComponent,
         CitylistComponent,
         MovielistComponent,
+        CarmodellistComponent,
     ],
 
     providers: [

@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class MovielistComponent {
   movie: string = '';
-  movieList: string[] = ['Inception', 'The Dark Knight', 'Interstellar']; // Predefined list of movies
+  movieList: string[] = ['Inception', 'The Dark Knight', 'Interstellar'];
 
   addMovie() {
     if (this.movie.trim()) {
