@@ -1,0 +1,8 @@
+<p>Sports List</p>
+<input type="text" [(ngModel)]="sport" placeholder="Enter sport name">
+
+<button (click)="addSport()">Add Sport</button>
+
+<ul>
+  <li *ngFor="let sport of sportsList">{{ sport }}</li>
+</ul>

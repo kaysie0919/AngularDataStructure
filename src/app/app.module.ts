@@ -17,6 +17,7 @@ import { ProductlistComponent } from "./components/productlist/productlist.compo
 import { Subject } from "rxjs";
 import { SubjectlistComponent } from "./components/subjectlist/subjectlist.component";
 import { CountrylistComponent } from "./components/countrylist/countrylist.component";
+import { SportslistComponent } from "./components/sportslist/sportslist.component";
 
 
 
@@ -33,6 +34,7 @@ const routes: Routes = [
     {path: 'prolist', component: ProductlistComponent},
     {path: 'sublist', component: SubjectlistComponent},
     {path: 'counlist', component: CountrylistComponent},
+    {path: 'spolist', component: SportslistComponent},
 ]
 
 @NgModule ({
@@ -57,6 +59,7 @@ const routes: Routes = [
         ProductlistComponent,
         SubjectlistComponent,
         CountrylistComponent,
+        SportslistComponent,
     ],
 
     providers: [
