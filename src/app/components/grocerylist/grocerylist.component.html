@@ -1,0 +1,8 @@
+<p>Grocery List</p>
+<input type="text" [(ngModel)]="groceryItem" placeholder="Enter grocery item name">
+
+<button (click)="addGroceryItem()">Add Grocery Item</button>
+
+<ul>
+  <li *ngFor="let item of groceryList">{{ item }}</li>
+</ul>
