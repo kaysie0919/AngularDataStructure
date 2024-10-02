@@ -19,6 +19,7 @@ import { SubjectlistComponent } from "./components/subjectlist/subjectlist.compo
 import { CountrylistComponent } from "./components/countrylist/countrylist.component";
 import { SportslistComponent } from "./components/sportslist/sportslist.component";
 import { VagetablelistComponent } from "./components/vagetablelist/vagetablelist.component";
+import { AnimallistComponent } from "./components/animallist/animallist.component";
 
 
 
@@ -37,6 +38,7 @@ const routes: Routes = [
     {path: 'counlist', component: CountrylistComponent},
     {path: 'spolist', component: SportslistComponent},
     {path: 'vaglist', component: VagetablelistComponent},
+    {path: 'anilist', component: AnimallistComponent},
 ]
 
 @NgModule ({
@@ -63,6 +65,7 @@ const routes: Routes = [
         CountrylistComponent,
         SportslistComponent,
         VagetablelistComponent,
+        AnimallistComponent,
     ],
 
     providers: [
