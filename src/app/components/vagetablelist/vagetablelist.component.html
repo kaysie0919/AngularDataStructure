@@ -1,0 +1,8 @@
+<p>Vagetable List</p>
+<input type="text" [(ngModel)]="vegetable" placeholder="Enter vegetable name">
+
+<button (click)="addVegetable()">Add Vegetable</button>
+
+<ul>
+  <li *ngFor="let vegetable of vegetableList">{{ vegetable }}</li>
+</ul>
