@@ -1,0 +1,14 @@
+<p>Country List</p>
+<input type="text" [(ngModel)]="continent" placeholder="Enter continent">
+<input type="text" [(ngModel)]="country" placeholder="Enter country name">
+
+<button (click)="addCountry()">Add Country</button>
+
+<ul>
+  <li *ngFor="let continentObj of countryList">
+    <strong>{{ continentObj.continent }}</strong>
+    <ul>
+      <li *ngFor="let country of continentObj.countries">{{ country }}</li>
+    </ul>
+  </li>
+</ul>
