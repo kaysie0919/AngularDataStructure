@@ -1,0 +1,8 @@
+<p>Software List</p>
+<input type="text" [(ngModel)]="software" placeholder="Enter software name">
+
+<button (click)="addSoftware()">Add Software</button>
+
+<ul>
+  <li *ngFor="let software of softwareList">{{ software }}</li>
+</ul>
