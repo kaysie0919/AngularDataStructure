@@ -1,0 +1,8 @@
+<p>Tool List</p>
+<input type="text" [(ngModel)]="tool" placeholder="Enter tool name">
+
+<button (click)="addTool()">Add Tool</button>
+
+<ul>
+  <li *ngFor="let tool of toolList">{{ tool }}</li>
+</ul>
