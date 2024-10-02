@@ -24,6 +24,7 @@ import { ToollistComponent } from "./components/toollist/toollist.component";
 import { LanguagelsitComponent } from "./components/languagelsit/languagelsit.component";
 import { GamelistComponent } from "./components/gamelist/gamelist.component";
 import { SoftwarelistComponent } from "./components/softwarelist/softwarelist.component";
+import { PhonecontactlistComponent } from "./components/phonecontactlist/phonecontactlist.component";
 
 
 
@@ -47,6 +48,7 @@ const routes: Routes = [
     {path: 'lanlist', component: LanguagelsitComponent},
     {path: 'gamlist', component: GamelistComponent},
     {path: 'soflist', component: SoftwarelistComponent},
+    {path: 'pholist', component: PhonecontactlistComponent},
 ]
 
 @NgModule ({
@@ -78,6 +80,7 @@ const routes: Routes = [
         LanguagelsitComponent,
         GamelistComponent,
         SoftwarelistComponent,
+        PhonecontactlistComponent,
     ],
 
     providers: [
