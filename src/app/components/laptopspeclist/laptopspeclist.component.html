@@ -1,0 +1,8 @@
+<p>Laptop Specs List</p>
+<input type="text" [(ngModel)]="spec" placeholder="Enter laptop specification">
+
+<button (click)="addSpec()">Add Specification</button>
+
+<ul>
+  <li *ngFor="let spec of specsList">{{ spec }}</li>
+</ul>
