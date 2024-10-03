@@ -1,0 +1,8 @@
+<p>Event List</p>
+<input type="text" [(ngModel)]="event" placeholder="Enter event and date">
+
+<button (click)="addEvent()">Add Event</button>
+
+<ul>
+  <li *ngFor="let event of eventList">{{ event }}</li>
+</ul>
