@@ -1,0 +1,8 @@
+<p>Accessory List</p>
+<input type="text" [(ngModel)]="accessory" placeholder="Enter accessory name">
+
+<button (click)="addAccessory()">Add Accessory</button>
+
+<ul>
+  <li *ngFor="let accessory of accessoryList">{{ accessory }}</li>
+</ul>
