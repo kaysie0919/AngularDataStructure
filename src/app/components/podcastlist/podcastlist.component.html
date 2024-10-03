@@ -1,0 +1,8 @@
+<p>Podcast List</p>
+<input type="text" [(ngModel)]="episode" placeholder="Enter podcast episode title">
+
+<button (click)="addEpisode()">Add Episode</button>
+
+<ul>
+  <li *ngFor="let episode of podcastList">{{ episode }}</li>
+</ul>
