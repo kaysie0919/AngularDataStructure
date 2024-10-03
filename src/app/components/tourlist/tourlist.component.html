@@ -1,0 +1,8 @@
+<p>Tour List</p>
+<input type="text" [(ngModel)]="tourDate" placeholder="Enter city and date">
+
+<button (click)="addTourDate()">Add Tour Date</button>
+
+<ul>
+  <li *ngFor="let tour of tourList">{{ tour }}</li>
+</ul>
