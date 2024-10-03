@@ -1,0 +1,8 @@
+<p>Painting List</p>
+<input type="text" [(ngModel)]="painting" placeholder="Enter painting name">
+
+<button (click)="addPainting()">Add Painting</button>
+
+<ul>
+  <li *ngFor="let painting of paintingList">{{ painting }}</li>
+</ul>
