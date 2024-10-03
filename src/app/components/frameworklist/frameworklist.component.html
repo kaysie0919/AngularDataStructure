@@ -1,0 +1,8 @@
+<p>Framework List</p>
+<input type="text" [(ngModel)]="framework" placeholder="Enter framework name">
+
+<button (click)="addFramework()">Add Framework</button>
+
+<ul>
+  <li *ngFor="let framework of frameworkList">{{ framework }}</li>
+</ul>

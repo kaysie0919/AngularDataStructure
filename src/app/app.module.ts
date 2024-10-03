@@ -54,6 +54,7 @@ import { PresentationlistComponent } from "./components/presentationlist/present
 import { TourlistComponent } from "./components/tourlist/tourlist.component";
 import { EvenlistComponent } from "./components/evenlist/evenlist.component";
 import { DevelopertoolslistComponent } from "./components/developertoolslist/developertoolslist.component";
+import { FrameworklistComponent } from "./components/frameworklist/frameworklist.component";
 
 
 
@@ -108,6 +109,7 @@ const routes: Routes = [
     {path: 'toulist', component: TourlistComponent},
     {path: 'evelist', component: EvenlistComponent},
     {path: 'devlist', component: DevelopertoolslistComponent},
+    {path: 'fralist', component: FrameworklistComponent},
 ]
 
 @NgModule ({
@@ -169,6 +171,7 @@ const routes: Routes = [
         TourlistComponent,
         EvenlistComponent,
         DevelopertoolslistComponent,
+        FrameworklistComponent,
     ],
 
     providers: [
