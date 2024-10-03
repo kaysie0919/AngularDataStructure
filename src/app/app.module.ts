@@ -30,6 +30,7 @@ import { FoodmenuComponent } from "./components/foodmenu/foodmenu.component";
 import { GrocerylistComponent } from "./components/grocerylist/grocerylist.component";
 import { ClassroomlistComponent } from "./components/classroomlist/classroomlist.component";
 import { InventorylistComponent } from "./components/inventorylist/inventorylist.component";
+import { LecturelistComponent } from "./components/lecturelist/lecturelist.component";
 
 
 
@@ -60,6 +61,7 @@ const routes: Routes = [
     {path: 'grolist', component: GrocerylistComponent},
     {path: 'clalist', component: ClassroomlistComponent},
     {path: 'invlist', component: InventorylistComponent},
+    {path: 'leclist', component: LecturelistComponent},
 ]
 
 @NgModule ({
@@ -97,6 +99,7 @@ const routes: Routes = [
         GrocerylistComponent,
         ClassroomlistComponent,
         InventorylistComponent,
+        LecturelistComponent,
     ],
 
     providers: [
