@@ -33,6 +33,7 @@ import { InventorylistComponent } from "./components/inventorylist/inventorylist
 import { LecturelistComponent } from "./components/lecturelist/lecturelist.component";
 import { StationerylistComponent } from "./components/stationerylist/stationerylist.component";
 import { FlowerlistComponent } from "./components/flowerlist/flowerlist.component";
+import { DestinationlistComponent } from "./components/destinationlist/destinationlist.component";
 
 
 
@@ -66,6 +67,7 @@ const routes: Routes = [
     {path: 'leclist', component: LecturelistComponent},
     {path: 'stalist', component: StationerylistComponent},
     {path: 'flolist', component: FlowerlistComponent},
+    {path: 'deslist', component: DestinationlistComponent},
 ]
 
 @NgModule ({
@@ -106,6 +108,7 @@ const routes: Routes = [
         LecturelistComponent,
         StationerylistComponent,
         FlowerlistComponent,
+        DestinationlistComponent,
     ],
 
     providers: [
