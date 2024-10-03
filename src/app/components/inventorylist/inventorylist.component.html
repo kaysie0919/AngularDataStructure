@@ -1,0 +1,7 @@
+<p>Inventory List</p>
+<input type="text" [(ngModel)]="inventoryItem" placeholder="Enter item name">
+<button (click)="addInventoryItem()">Add Item</button>
+
+<ul>
+  <li *ngFor="let item of inventoryList">{{ item }}</li>
+</ul>
