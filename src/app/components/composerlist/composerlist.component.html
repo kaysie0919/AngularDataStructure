@@ -1,0 +1,8 @@
+<p>Composer List</p>
+<input type="text" [(ngModel)]="composer" placeholder="Enter composer name">
+
+<button (click)="addComposer()">Add Composer</button>
+
+<ul>
+  <li *ngFor="let composer of composerList">{{ composer }}</li>
+</ul>
