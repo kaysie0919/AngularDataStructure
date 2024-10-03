@@ -1,0 +1,8 @@
+<p>Video List</p>
+<input type="text" [(ngModel)]="videoTitle" placeholder="Enter video title">
+
+<button (click)="addVideo()">Add Video</button>
+
+<ul>
+  <li *ngFor="let video of videoList">{{ video }}</li>
+</ul>
