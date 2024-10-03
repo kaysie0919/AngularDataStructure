@@ -1,0 +1,8 @@
+<p>Budget List</p>
+<input type="text" [(ngModel)]="budgetItem" placeholder="Enter budget item and cost">
+
+<button (click)="addBudgetItem()">Add Budget Item</button>
+
+<ul>
+  <li *ngFor="let item of budgetList">{{ item }}</li>
+</ul>
