@@ -1,0 +1,8 @@
+<p>Meal Plan List</p>
+<input type="text" [(ngModel)]="meal" placeholder="Enter meal and day">
+
+<button (click)="addMeal()">Add Meal</button>
+
+<ul>
+  <li *ngFor="let meal of mealPlanList">{{ meal }}</li>
+</ul>
