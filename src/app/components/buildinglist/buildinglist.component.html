@@ -1,0 +1,8 @@
+<p>Building List</p>
+<input type="text" [(ngModel)]="building" placeholder="Enter building name">
+
+<button (click)="addBuilding()">Add Building</button>
+
+<ul>
+  <li *ngFor="let building of buildingList">{{ building }}</li>
+</ul>

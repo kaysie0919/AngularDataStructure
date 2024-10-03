@@ -42,6 +42,7 @@ import { VideolistComponent } from "./components/videolist/videolist.component";
 import { TvshowlistComponent } from "./components/tvshowlist/tvshowlist.component";
 import { FurniturelistComponent } from "./components/furniturelist/furniturelist.component";
 import { AccessorylistComponent } from "./components/accessorylist/accessorylist.component";
+import { BuildinglistComponent } from "./components/buildinglist/buildinglist.component";
 
 
 
@@ -84,6 +85,7 @@ const routes: Routes = [
     {path: 'tvslist', component: TvshowlistComponent},
     {path: 'furlist', component: FurniturelistComponent},
     {path: 'acclist', component: AccessorylistComponent},
+    {path: 'builist', component: BuildinglistComponent},
 ]
 
 @NgModule ({
@@ -133,6 +135,7 @@ const routes: Routes = [
         TvshowlistComponent,
         FurniturelistComponent,
         AccessorylistComponent,
+        BuildinglistComponent,
     ],
 
     providers: [
