@@ -1,7 +1,10 @@
 <p>Fruit List</p>
 <input type="text" [(ngModel)]="fruit" placeholder="Add Fruit"/>
-<button (click)="Add()">Add</button>
+<button (click)="addFruit()">Add</button>
 
 <ul>
-    <li *ngFor="let fruits of fruitList">{{fruits}}</li>
+    <li *ngFor="let fruit of fruitList">
+        ID: {{ fruit.id }} - Name: {{ fruit.name }}
+        <button (click)="removeFruit(fruit.id)">Remove</button>
+    </li>
 </ul>
