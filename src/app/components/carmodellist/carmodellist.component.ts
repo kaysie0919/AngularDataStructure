@@ -1,19 +1,27 @@
 import { Component } from '@angular/core';
+import { CarmodellistService } from '../services/carmodellist.service';
 
 @Component({
   selector: 'app-carmodellist',
   templateUrl: './carmodellist.component.html',
-  styleUrl: './carmodellist.component.css'
+  styleUrls: ['./carmodellist.component.css']
 })
 export class CarmodellistComponent {
   carModel: string = '';
-  carModelList: string[] = ['Tesla Model S', 'Ford Mustang', 'BMW X5'];
+  carModelList: { id: number; name: string }[] = [];
 
-  addCarModel() {
-    if (this.carModel.trim()) {
-      this.carModelList.push(this.carModel.trim());
-      this.carModel = '';
-    }
+  constructor(private carModelService: CarmodellistService) {
+    this.carModelList = this.carModelService.getCarModels();
   }
 
+  addCarModel() {
+    this.carModelService.addCarModel(this.carModel);
+    this.carModelList = this.carModelService.getCarModels();
+    this.carModel = '';
+  }
+
+  removeCarModel(id: number) {
+    this.carModelService.removeCarModel(id);
+    this.carModelList = this.carModelService.getCarModels();
+  }
 }

@@ -1,6 +1,9 @@
 <p>Car Model List</p>
-<input type="text" id="carModel" [(ngModel)]="carModel" placeholder="Enter car model">
+<input type="text" [(ngModel)]="carModel" placeholder="Enter car model">
 <button (click)="addCarModel()">Add Car Model</button>
-  <ul>
-    <li *ngFor="let carModel of carModelList">{{ carModel }}</li>
-  </ul>
+<ul>
+  <li *ngFor="let car of carModelList">
+    ID: {{ car.id }} | Name: {{ car.name }}
+    <button (click)="removeCarModel(car.id)">Remove</button>
+  </li>
+</ul>
