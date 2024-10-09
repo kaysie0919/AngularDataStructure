@@ -1,8 +1,12 @@
-<p>Vagetable List</p>
-<input type="text" [(ngModel)]="vegetable" placeholder="Enter vegetable name">
+<p>Vegetable List</p>
+<input type="text" [(ngModel)]="vegetableName" placeholder="Enter vegetable name">
+<input type="number" [(ngModel)]="vegetablePrice" placeholder="Enter price">
 
 <button (click)="addVegetable()">Add Vegetable</button>
 
 <ul>
-  <li *ngFor="let vegetable of vegetableList">{{ vegetable }}</li>
+  <li *ngFor="let vegetable of vegetableList">
+    ID: {{ vegetable.id }} - {{ vegetable.name }} | Price: {{ vegetable.price }} pesos
+    <button (click)="removeVegetable(vegetable.id)">Remove</button>
+  </li>
 </ul>
