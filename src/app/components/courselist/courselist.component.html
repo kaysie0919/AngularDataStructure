@@ -1,7 +1,10 @@
 <p>Course List</p>
 <input type="text" [(ngModel)]="course" placeholder="Add Course"/>
-<button (click)="Add()">Add</button>
+<button (click)="addCourse()">Add</button>
 
 <ul>
-    <li *ngFor="let courses of courseList">{{courses}}</li>
+    <li *ngFor="let course of courseList">
+        ID: {{ course.id }} - Course: {{ course.name }}
+        <button (click)="removeCourse(course.id)">Remove</button>
+    </li>
 </ul>

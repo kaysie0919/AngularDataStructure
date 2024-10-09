@@ -1,16 +1,27 @@
 import { Component } from '@angular/core';
+import { CourselistService } from '../services/courselist.service';
 
 @Component({
   selector: 'app-courselist',
   templateUrl: './courselist.component.html',
-  styleUrl: './courselist.component.css'
+  styleUrls: ['./courselist.component.css']
 })
 export class CourselistComponent {
   course: string = '';
-  courseList: string [] = ["BSIT", "BSHM", "BSEED"];
+  courseList: { id: number; name: string }[] = [];
 
-  Add() {
-    this.courseList.push(this.course);
-  } 
+  constructor(private courseService: CourselistService) {
+    this.courseList = this.courseService.getCourses();
+  }
 
+  addCourse() {
+    this.courseService.addCourse(this.course);
+    this.course = '';
+    this.courseList = this.courseService.getCourses();
+  }
+
+  removeCourse(id: number) {
+    this.courseService.removeCourse(id);
+    this.courseList = this.courseService.getCourses();
+  }
 }
