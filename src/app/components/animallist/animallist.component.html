@@ -1,9 +1,10 @@
 <p>Animal List</p>
-
-<input type="text" [(ngModel)]="animal" placeholder="Enter animal name">
-
+<input type="text" [(ngModel)]="animalName" placeholder="Enter animal name">
 <button (click)="addAnimal()">Add Animal</button>
 
 <ul>
-  <li *ngFor="let animal of animalList">{{ animal }}</li>
+  <li *ngFor="let animal of animalList">
+    ID: {{ animal.id }} - {{ animal.name }}
+    <button (click)="removeAnimal(animal.id)">Remove</button>
+  </li>
 </ul>
