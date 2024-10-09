@@ -1,19 +1,27 @@
 import { Component } from '@angular/core';
+import { SubjectlistService } from '../services/subjectlist.service';
 
 @Component({
   selector: 'app-subjectlist',
   templateUrl: './subjectlist.component.html',
-  styleUrl: './subjectlist.component.css'
+  styleUrls: ['./subjectlist.component.css']
 })
 export class SubjectlistComponent {
   subject: string = '';
-  subjectList: string[] = ['Mathematics', 'Physics', 'Chemistry'];
+  subjectList: { id: number; name: string }[] = [];
 
-  addSubject() {
-    if (this.subject.trim()) {
-      this.subjectList.push(this.subject.trim());
-      this.subject = '';
-    }
+  constructor(private subjectService: SubjectlistService) {
+    this.subjectList = this.subjectService.getSubjects();
   }
 
+  addSubject() {
+    this.subjectService.addSubject(this.subject);
+    this.subjectList = this.subjectService.getSubjects();
+    this.subject = '';
+  }
+
+  removeSubject(id: number) {
+    this.subjectService.removeSubject(id);
+    this.subjectList = this.subjectService.getSubjects();
+  }
 }

@@ -1,8 +1,9 @@
 <p>Subject List</p>
 <input type="text" [(ngModel)]="subject" placeholder="Enter subject name">
-
-  <button (click)="addSubject()">Add Subject</button>
-
-  <ul>
-    <li *ngFor="let subject of subjectList">{{ subject }}</li>
-  </ul>
+<button (click)="addSubject()">Add Subject</button>
+<ul>
+  <li *ngFor="let subject of subjectList">
+    ID: {{ subject.id }} | Subject: {{ subject.name }}
+    <button (click)="removeSubject(subject.id)">Remove</button>
+  </li>
+</ul>
