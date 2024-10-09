@@ -1,10 +1,13 @@
 <p>Book List</p>
-  <input type="text" [(ngModel)]="title" placeholder="Enter Title">
-  <input type="text" [(ngModel)]="author" placeholder="Enter Author">
-  <input type="text" [(ngModel)]="genre" placeholder="Enter Genre">
-  <input type="text" [(ngModel)]="booknumber" placeholder="Enter Book Number">
+<input type="text" [(ngModel)]="title" placeholder="Enter Title">
+<input type="text" [(ngModel)]="author" placeholder="Enter Author">
+<input type="text" [(ngModel)]="genre" placeholder="Enter Genre">
+<input type="text" [(ngModel)]="bookNumber" placeholder="Enter Book Number">
 
-  <button (click)="addItem()">Add Book</button>
-  <ul>
-    <li *ngFor="let book of booklist">{{ book }}</li>
-  </ul>
+<button (click)="addItem()">Add Book</button>
+<ul>
+  <li *ngFor="let book of bookList">
+    ID: {{ book.id }} | Title: {{ book.title }} | Author: {{ book.author }} | Genre: {{ book.genre }} | Book Number: {{ book.bookNumber }}
+    <button (click)="removeItem(book.id)">Remove</button>
+  </li>
+</ul>

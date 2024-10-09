@@ -1,30 +1,33 @@
 import { Component } from '@angular/core';
+import { BooklistService } from '../services/booklist.service';
 
 @Component({
   selector: 'app-booklist',
   templateUrl: './booklist.component.html',
-  styleUrl: './booklist.component.css'
+  styleUrls: ['./booklist.component.css']
 })
 export class BooklistComponent {
   title: string = '';
   author: string = '';
   genre: string = '';
-  booknumber: string = '';
-  booklist: string[] = [];
+  bookNumber: string = '';
+  bookList: { id: number; title: string; author: string; genre: string; bookNumber: string }[] = [];
 
-  addItem() {
-    if (this.title.trim() && this.author.trim() && this.genre.trim() && this.booknumber.trim()) {
-      const bookInfo = `Book Title: ${this.title.trim()}  | Author: ${this.author.trim()} | Genre: ${this.genre.trim()} | Book Number: ${this.booknumber.trim()}`;
-      this.booklist.push(bookInfo);
-
-      this.title = '';
-      this.author = '';
-      this.genre = '';
-      this.booknumber = '';
-    }
-    else {
-      return;
-    }
+  constructor(private bookService: BooklistService) {
+    this.bookList = this.bookService.getBooks();
   }
 
+  addItem() {
+    this.bookService.addBook(this.title, this.author, this.genre, this.bookNumber);
+    this.bookList = this.bookService.getBooks();
+    this.title = '';
+    this.author = '';
+    this.genre = '';
+    this.bookNumber = '';
+  }
+
+  removeItem(id: number) {
+    this.bookService.removeBook(id);
+    this.bookList = this.bookService.getBooks();
+  }
 }
