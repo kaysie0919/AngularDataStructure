@@ -1,27 +1,24 @@
 import { Component } from '@angular/core';
+import { CountrylistService } from '../services/countrylist.service';
 
 @Component({
   selector: 'app-countrylist',
   templateUrl: './countrylist.component.html',
-  styleUrl: './countrylist.component.css'
+  styleUrls: ['./countrylist.component.css']
 })
 export class CountrylistComponent {
   country: string = '';
   continent: string = '';
-  countryList: { continent: string; countries: string[] }[] = [
-    { continent: 'Asia', countries: ['China', 'India', 'Japan'] },
-    { continent: 'Europe', countries: ['Germany', 'France', 'Italy'] },
-    { continent: 'Africa', countries: ['Nigeria', 'Kenya', 'South Africa'] }
-  ];
+  countryList: { continent: string; countries: string[] }[] = [];
+
+  constructor(private countryService: CountrylistService) {
+    this.countryList = this.countryService.getCountries();
+  }
 
   addCountry() {
-    if (this.country.trim() && this.continent.trim()) {
-      const continentObj = this.countryList.find(c => c.continent === this.continent);
-      if (continentObj) {
-        continentObj.countries.push(this.country.trim());
-      }
-      this.country = '';
-      this.continent = '';
-    }
+    this.countryService.addCountry(this.continent, this.country);
+    this.countryList = this.countryService.getCountries();
+    this.country = '';
+    this.continent = '';
   }
 }
