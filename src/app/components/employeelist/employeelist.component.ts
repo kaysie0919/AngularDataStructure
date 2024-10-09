@@ -1,24 +1,33 @@
 import { Component } from '@angular/core';
+import { EmployeelistService } from '../services/employeelist.service';
 
 @Component({
   selector: 'app-employeelist',
   templateUrl: './employeelist.component.html',
-  styleUrl: './employeelist.component.css'
+  styleUrls: ['./employeelist.component.css']
 })
 export class EmployeelistComponent {
   name: string = '';
   job: string = '';
   position: string = '';
-  employeelist: string [] = [];
+  employeeList: any[] = [];
 
-  Add() {
+  constructor(private employeeService: EmployeelistService) {
+    this.employeeList = this.employeeService.getEmployees();
+  }
+
+  addItem() {
     if (this.name.trim() && this.job.trim() && this.position.trim()) {
-      const employeeInfo = `Name: ${this.name.trim()} - Job: ${this.job.trim()} - Position: ${this.position.trim()}`;
-      this.employeelist.push(employeeInfo);
-    }
-    else {
-      return;
+      this.employeeService.addEmployee(this.name, this.job, this.position);
+      this.name = '';
+      this.job = '';
+      this.position = '';
+      this.employeeList = this.employeeService.getEmployees();
     }
   }
 
+  removeItem(id: number) {
+    this.employeeService.removeEmployee(id);
+    this.employeeList = this.employeeService.getEmployees();
+  }
 }

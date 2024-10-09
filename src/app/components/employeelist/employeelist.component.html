@@ -1,10 +1,13 @@
-<p>Employee List</p>
+<p>Employee List Works!</p>
+<input type="text" [(ngModel)]="name" placeholder="Enter name">
+<input type="text" [(ngModel)]="job" placeholder="Enter job">
+<input type="text" [(ngModel)]="position" placeholder="Enter position">
 
-<input type="text" [(ngModel)]="name" placeholder="Enter Name"/>
-<input type="text" [(ngModel)]="job" placeholder="Enter Job"/>
-<input type="text" [(ngModel)]="position" placeholder="Enter Position"/>
-<button (click)="Add()">Add</button>
+<button (click)="addItem()">Add Employee</button>
 
 <ul>
-    <li *ngFor="let employyee of employeelist">{{employyee}}</li>
+  <li *ngFor="let employee of employeeList">
+    ID: {{ employee.id }} - Name: {{ employee.name }} - Job: {{ employee.job }} - Position: {{ employee.position }}
+    <button (click)="removeItem(employee.id)">Remove</button>
+  </li>
 </ul>
