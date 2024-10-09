@@ -1,19 +1,27 @@
 import { Component } from '@angular/core';
+import { ProductlistService } from '../services/productlist.service';
 
 @Component({
   selector: 'app-productlist',
   templateUrl: './productlist.component.html',
-  styleUrl: './productlist.component.css'
+  styleUrls: ['./productlist.component.css']
 })
 export class ProductlistComponent {
   product: string = '';
-  productList: string[] = ['Laptop', 'Smartphone', 'Headphones'];
+  productList: { id: number; name: string }[] = [];
 
-  addProduct() {
-    if (this.product.trim()) {
-      this.productList.push(this.product.trim());
-      this.product = '';
-    }
+  constructor(private productService: ProductlistService) {
+    this.productList = this.productService.getProducts();
   }
 
+  addProduct() {
+    this.productService.addProduct(this.product);
+    this.productList = this.productService.getProducts();
+    this.product = '';
+  }
+
+  removeProduct(id: number) {
+    this.productService.removeProduct(id);
+    this.productList = this.productService.getProducts();
+  }
 }
