@@ -1,6 +1,9 @@
 <p>Movie List</p>
-<input type="text" id="movie" [(ngModel)]="movie" placeholder="Enter movie name">
+<input type="text" [(ngModel)]="movie" placeholder="Enter movie name">
 <button (click)="addMovie()">Add Movie</button>
-  <ul>
-    <li *ngFor="let movie of movieList">{{ movie }}</li>
-  </ul>
+<ul>
+  <li *ngFor="let movie of movieList">
+    ID: {{ movie.id }} | Name: {{ movie.name }}
+    <button (click)="removeMovie(movie.id)">Remove</button>
+  </li>
+</ul>

@@ -1,19 +1,27 @@
 import { Component } from '@angular/core';
+import { MovielistService } from '../services/movielist.service';
 
 @Component({
   selector: 'app-movielist',
   templateUrl: './movielist.component.html',
-  styleUrl: './movielist.component.css'
+  styleUrls: ['./movielist.component.css']
 })
 export class MovielistComponent {
   movie: string = '';
-  movieList: string[] = ['Inception', 'The Dark Knight', 'Interstellar'];
+  movieList: { id: number; name: string }[] = [];
 
-  addMovie() {
-    if (this.movie.trim()) {
-      this.movieList.push(this.movie.trim());
-      this.movie = '';
-    }
+  constructor(private movieService: MovielistService) {
+    this.movieList = this.movieService.getMovies();
   }
 
+  addMovie() {
+    this.movieService.addMovie(this.movie);
+    this.movieList = this.movieService.getMovies();
+    this.movie = '';
+  }
+
+  removeMovie(id: number) {
+    this.movieService.removeMovie(id);
+    this.movieList = this.movieService.getMovies();
+  }
 }
