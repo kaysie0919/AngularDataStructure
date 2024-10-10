@@ -1,8 +1,10 @@
 <p>Flower List</p>
 <input type="text" [(ngModel)]="flower" placeholder="Enter flower name">
-
 <button (click)="addFlower()">Add Flower</button>
 
 <ul>
-  <li *ngFor="let flower of flowerList">{{ flower }}</li>
+  <li *ngFor="let flower of flowerList">
+    ID: {{ flower.id }} - {{ flower.name }}
+    <button (click)="removeFlower(flower.id)">Remove</button>
+  </li>
 </ul>
