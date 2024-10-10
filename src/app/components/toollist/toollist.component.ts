@@ -10,7 +10,7 @@ import { Tool } from '../interface/toollist';
 export class ToollistComponent {
   toolName: string = '';
   toolList: Tool[] = [];
-  nextId: number = 4; // Initialize with the next available ID
+  nextId: number = 1;
 
   constructor(private toolService: ToollistService) {
     this.toolList = this.toolService.getTools();

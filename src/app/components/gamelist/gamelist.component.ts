@@ -10,7 +10,7 @@ import { Game } from '../interface/gamelist';
 export class GamelistComponent {
   gameName: string = '';
   gameList: Game[] = [];
-  nextId: number = 4;
+  nextId: number = 1;
 
   constructor(private gameService: GamelistService) {
     this.gameList = this.gameService.getGames();

@@ -1,11 +1,11 @@
 <p>Phone Contact List</p>
 <input type="text" [(ngModel)]="name" placeholder="Enter contact name">
 <input type="text" [(ngModel)]="phone" placeholder="Enter phone number">
-
 <button (click)="addContact()">Add Contact</button>
 
 <ul>
   <li *ngFor="let contact of contactList">
-    {{ contact.name }}: {{ contact.phone }}
+    ID: {{ contact.id }} - {{ contact.name }}: {{ contact.phone }}
+    <button (click)="removeContact(contact.id)">Remove</button>
   </li>
 </ul>

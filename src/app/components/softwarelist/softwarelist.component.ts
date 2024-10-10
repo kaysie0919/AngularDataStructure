@@ -10,7 +10,7 @@ import { Software } from '../interface/softwarelist';
 export class SoftwarelistComponent {
   softwareName: string = '';
   softwareList: Software[] = [];
-  nextId: number = 4;
+  nextId: number = 1;
 
   constructor(private softwareService: SoftwarelistService) {
     this.softwareList = this.softwareService.getSoftwareList();

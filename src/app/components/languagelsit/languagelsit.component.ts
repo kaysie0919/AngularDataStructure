@@ -10,7 +10,7 @@ import { Language } from '../interface/languagelist';
 export class LanguagelsitComponent {
   languageName: string = '';
   languageList: Language[] = [];
-  nextId: number = 4;
+  nextId: number = 1;
 
   constructor(private languageService: LanguagelistService) {
     this.languageList = this.languageService.getLanguages();
