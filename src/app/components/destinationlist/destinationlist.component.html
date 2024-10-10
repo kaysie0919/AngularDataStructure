@@ -1,9 +1,10 @@
 <p>Destination List</p>
-
 <input type="text" [(ngModel)]="destination" placeholder="Enter destination name">
-
 <button (click)="addDestination()">Add Destination</button>
 
 <ul>
-  <li *ngFor="let destination of destinationList">{{ destination }}</li>
+  <li *ngFor="let destination of destinationList">
+    ID: {{ destination.id }} - {{ destination.name }}
+    <button (click)="removeDestination(destination.id)">Remove</button>
+  </li>
 </ul>
