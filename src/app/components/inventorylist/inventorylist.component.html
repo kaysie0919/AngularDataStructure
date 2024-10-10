@@ -1,7 +1,10 @@
 <p>Inventory List</p>
-<input type="text" [(ngModel)]="inventoryItem" placeholder="Enter item name">
+<input type="text" [(ngModel)]="inventoryItemName" placeholder="Enter item name">
 <button (click)="addInventoryItem()">Add Item</button>
 
 <ul>
-  <li *ngFor="let item of inventoryList">{{ item }}</li>
+  <li *ngFor="let item of inventoryList">
+    ID: {{ item.id }} - {{ item.name }}
+    <button (click)="removeInventoryItem(item.id)">Remove</button>
+  </li>
 </ul>

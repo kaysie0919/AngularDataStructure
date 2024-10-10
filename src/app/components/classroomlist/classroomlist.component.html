@@ -1,8 +1,10 @@
 <p>Classroom List</p>
 <input type="text" [(ngModel)]="studentName" placeholder="Enter student name">
-
 <button (click)="addStudent()">Add Student</button>
 
 <ul>
-  <li *ngFor="let student of classroomList">{{ student }}</li>
+  <li *ngFor="let student of classroomList">
+    ID: {{ student.id }} - {{ student.name }}
+    <button (click)="removeStudent(student.id)">Remove</button>
+  </li>
 </ul>
