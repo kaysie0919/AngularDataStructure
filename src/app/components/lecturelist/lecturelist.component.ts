@@ -1,19 +1,36 @@
 import { Component } from '@angular/core';
+import { LecturelistService } from '../services/lecturelist.service';
+import { Lecture } from '../interface/lecturelist';
 
 @Component({
   selector: 'app-lecturelist',
   templateUrl: './lecturelist.component.html',
-  styleUrl: './lecturelist.component.css'
+  styleUrls: ['./lecturelist.component.css']
 })
 export class LecturelistComponent {
+  lectureTitle: string = '';
+  lectureList: Lecture[] = [];
+  nextId: number = 1;
 
-  lecture: string = '';
-  lectureList: string[] = ['Introduction to Angular', 'Data Binding in Angular', 'Angular Directives'];
+  constructor(private lecturelistService: LecturelistService) {
+    this.lectureList = this.lecturelistService.getLectureList();
+  }
 
   addLecture() {
-    if (this.lecture.trim()) {
-      this.lectureList.push(this.lecture.trim());
-      this.lecture = '';
+    if (this.lectureTitle.trim()) {
+      const newLecture: Lecture = { id: this.nextId++, title: this.lectureTitle.trim() };
+      this.lecturelistService.addLecture(newLecture);
+      this.updateLectureList();
+      this.lectureTitle = '';
     }
+  }
+
+  removeLecture(id: number) {
+    this.lecturelistService.removeLecture(id);
+    this.updateLectureList();
+  }
+
+  private updateLectureList() {
+    this.lectureList = this.lecturelistService.getLectureList();
   }
 }
