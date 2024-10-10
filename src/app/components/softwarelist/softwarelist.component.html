@@ -1,8 +1,10 @@
 <p>Software List</p>
-<input type="text" [(ngModel)]="software" placeholder="Enter software name">
-
+<input type="text" [(ngModel)]="softwareName" placeholder="Enter software name">
 <button (click)="addSoftware()">Add Software</button>
 
 <ul>
-  <li *ngFor="let software of softwareList">{{ software }}</li>
+  <li *ngFor="let software of softwareList">
+    ID: {{ software.id }} - {{ software.name }}
+    <button (click)="removeSoftware(software.id)">Remove</button>
+  </li>
 </ul>
