@@ -1,8 +1,10 @@
 <p>Stationery List</p>
 <input type="text" [(ngModel)]="stationeryItem" placeholder="Enter stationery item name">
-
 <button (click)="addStationeryItem()">Add Item</button>
 
 <ul>
-  <li *ngFor="let item of stationeryList">{{ item }}</li>
+  <li *ngFor="let item of stationeryList">
+    ID: {{ item.id }} - {{ item.name }}
+    <button (click)="removeStationeryItem(item.id)">Remove</button>
+  </li>
 </ul>
