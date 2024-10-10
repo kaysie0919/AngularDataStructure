@@ -1,8 +1,10 @@
 <p>Language List</p>
-<input type="text" [(ngModel)]="language" placeholder="Enter programming language">
-
+<input type="text" [(ngModel)]="languageName" placeholder="Enter programming language">
 <button (click)="addLanguage()">Add Language</button>
 
 <ul>
-  <li *ngFor="let language of languageList">{{ language }}</li>
+  <li *ngFor="let language of languageList">
+    ID: {{ language.id }} - {{ language.name }}
+    <button (click)="removeLanguage(language.id)">Remove</button>
+  </li>
 </ul>
