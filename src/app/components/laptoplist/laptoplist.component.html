@@ -1,8 +1,10 @@
 <p>Laptop List</p>
 <input type="text" [(ngModel)]="laptopModel" placeholder="Enter laptop model">
-
 <button (click)="addLaptopModel()">Add Laptop Model</button>
 
 <ul>
-  <li *ngFor="let laptop of laptopList">{{ laptop }}</li>
+  <li *ngFor="let laptop of laptopList">
+    ID: {{ laptop.id }} - {{ laptop.model }}
+    <button (click)="removeLaptop(laptop.id)">Remove</button>
+  </li>
 </ul>
