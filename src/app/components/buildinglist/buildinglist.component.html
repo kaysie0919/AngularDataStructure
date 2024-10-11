@@ -1,8 +1,10 @@
 <p>Building List</p>
 <input type="text" [(ngModel)]="building" placeholder="Enter building name">
-
 <button (click)="addBuilding()">Add Building</button>
 
 <ul>
-  <li *ngFor="let building of buildingList">{{ building }}</li>
+  <li *ngFor="let item of buildingList">
+    ID: {{ item.id }} - Building Name: {{ item.name }}
+    <button (click)="removeBuilding(item.id)">Remove</button>
+  </li>
 </ul>
