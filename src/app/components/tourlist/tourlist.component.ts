@@ -1,19 +1,36 @@
 import { Component } from '@angular/core';
+import { TourlistService } from '../services/tourlist.service';
+import { Tour } from '../interface/tourlist';
 
 @Component({
   selector: 'app-tourlist',
   templateUrl: './tourlist.component.html',
-  styleUrl: './tourlist.component.css'
+  styleUrls: ['./tourlist.component.css']
 })
 export class TourlistComponent {
   tourDate: string = '';
-  tourList: string[] = ['New York: 10th Oct', 'Los Angeles: 15th Oct', 'Chicago: 20th Oct'];
+  tourList: Tour[] = [];
+  nextId: number = 1;
+
+  constructor(private tourService: TourlistService) {
+    this.tourList = this.tourService.getTourList();
+  }
 
   addTourDate() {
     if (this.tourDate.trim()) {
-      this.tourList.push(this.tourDate.trim());
+      const newTour: Tour = { id: this.nextId++, date: this.tourDate.trim() };
+      this.tourService.addTour(newTour);
+      this.updateTourList();
       this.tourDate = '';
     }
   }
 
+  removeTour(id: number) {
+    this.tourService.removeTour(id);
+    this.updateTourList();
+  }
+
+  private updateTourList() {
+    this.tourList = this.tourService.getTourList();
+  }
 }
