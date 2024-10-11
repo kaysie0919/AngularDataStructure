@@ -1,8 +1,10 @@
 <p>Budget List</p>
 <input type="text" [(ngModel)]="budgetItem" placeholder="Enter budget item and cost">
-
 <button (click)="addBudgetItem()">Add Budget Item</button>
 
 <ul>
-  <li *ngFor="let item of budgetList">{{ item }}</li>
+  <li *ngFor="let item of budgetList">
+    ID: {{ item.id }} - Budget: {{ item.detail }}
+    <button (click)="removeBudget(item.id)">Remove</button>
+  </li>
 </ul>
