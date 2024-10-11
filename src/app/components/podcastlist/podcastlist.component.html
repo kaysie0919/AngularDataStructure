@@ -1,8 +1,10 @@
 <p>Podcast List</p>
 <input type="text" [(ngModel)]="episode" placeholder="Enter podcast episode title">
-
 <button (click)="addEpisode()">Add Episode</button>
 
 <ul>
-  <li *ngFor="let episode of podcastList">{{ episode }}</li>
+  <li *ngFor="let podcast of podcastList">
+    ID: {{ podcast.id }} - Title: {{ podcast.title }}
+    <button (click)="removeEpisode(podcast.id)">Remove</button>
+  </li>
 </ul>
