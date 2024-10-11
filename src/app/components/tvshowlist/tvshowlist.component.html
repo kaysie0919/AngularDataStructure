@@ -1,8 +1,10 @@
 <p>TV Show List</p>
 <input type="text" [(ngModel)]="tvShow" placeholder="Enter TV show title">
-
 <button (click)="addTVShow()">Add TV Show</button>
 
 <ul>
-  <li *ngFor="let show of tvShowList">{{ show }}</li>
+  <li *ngFor="let show of tvShowList">
+    ID: {{ show.id }} - Title: {{ show.title }}
+    <button (click)="removeTVShow(show.id)">Remove</button>
+  </li>
 </ul>
