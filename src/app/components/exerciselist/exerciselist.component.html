@@ -1,8 +1,10 @@
 <p>Exercise List</p>
 <input type="text" [(ngModel)]="exercise" placeholder="Enter exercise name">
-
 <button (click)="addExercise()">Add Exercise</button>
 
 <ul>
-  <li *ngFor="let exercise of exerciseList">{{ exercise }}</li>
+  <li *ngFor="let exercise of exerciseList">
+    ID: {{ exercise.id }} - Exercise: {{ exercise.name }}
+    <button (click)="removeExercise(exercise.id)">Remove</button>
+  </li>
 </ul>
