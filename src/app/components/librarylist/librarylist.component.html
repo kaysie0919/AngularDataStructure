@@ -1,8 +1,10 @@
 <p>Library List</p>
-<input type="text" [(ngModel)]="library" placeholder="Enter library name">
-
+<input type="text" [(ngModel)]="libraryName" placeholder="Enter library name">
 <button (click)="addLibrary()">Add Library</button>
 
 <ul>
-  <li *ngFor="let library of libraryList">{{ library }}</li>
+  <li *ngFor="let library of libraryList">
+    ID: {{ library.id }} - Name: {{ library.name }}
+    <button (click)="removeLibrary(library.id)">Remove</button>
+  </li>
 </ul>
