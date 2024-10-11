@@ -1,8 +1,10 @@
 <p>Presentation List</p>
 <input type="text" [(ngModel)]="topic" placeholder="Enter presentation topic">
-
 <button (click)="addTopic()">Add Topic</button>
 
 <ul>
-  <li *ngFor="let topic of presentationList">{{ topic }}</li>
+  <li *ngFor="let presentation of presentationList">
+    ID: {{ presentation.id }} - Title: {{ presentation.topic }}
+    <button (click)="removePresentation(presentation.id)">Remove</button>
+  </li>
 </ul>
