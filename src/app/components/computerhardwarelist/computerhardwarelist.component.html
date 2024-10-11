@@ -1,8 +1,11 @@
 <p>Computer Hardware List</p>
-<input type="text" [(ngModel)]="hardware" placeholder="Enter hardware component">
 
+<input type="text" [(ngModel)]="hardware" placeholder="Enter hardware component">
 <button (click)="addHardware()">Add Hardware</button>
 
 <ul>
-  <li *ngFor="let hardware of hardwareList">{{ hardware }}</li>
+  <li *ngFor="let hardware of hardwareList">
+    ID: {{ hardware.id }} - {{ hardware.detail }}
+    <button (click)="removeHardware(hardware.id)">Remove</button>
+  </li>
 </ul>

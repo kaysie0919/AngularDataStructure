@@ -1,19 +1,36 @@
 import { Component } from '@angular/core';
+import { ComputerhardwarelistService } from '../services/computerhardwarelist.service';
+import { Hardware } from '../interface/computerhardwarelist';
 
 @Component({
   selector: 'app-computerhardwarelist',
   templateUrl: './computerhardwarelist.component.html',
-  styleUrl: './computerhardwarelist.component.css'
+  styleUrls: ['./computerhardwarelist.component.css']
 })
 export class ComputerhardwarelistComponent {
   hardware: string = '';
-  hardwareList: string[] = ['Motherboard', 'CPU', 'RAM', 'Graphics Card'];
+  hardwareList: Hardware[] = [];
+  nextId: number = 1;
+
+  constructor(private hardwareService: ComputerhardwarelistService) {
+    this.hardwareList = this.hardwareService.getHardwareList();
+  }
 
   addHardware() {
     if (this.hardware.trim()) {
-      this.hardwareList.push(this.hardware.trim());
+      const newHardware: Hardware = { id: this.nextId++, detail: this.hardware.trim() };
+      this.hardwareService.addHardware(newHardware);
+      this.updateHardwareList();
       this.hardware = '';
     }
   }
 
+  removeHardware(id: number) {
+    this.hardwareService.removeHardware(id);
+    this.updateHardwareList();
+  }
+
+  private updateHardwareList() {
+    this.hardwareList = this.hardwareService.getHardwareList();
+  }
 }
