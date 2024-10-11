@@ -1,8 +1,10 @@
 <p>Framework List</p>
-<input type="text" [(ngModel)]="framework" placeholder="Enter framework name">
-
+<input type="text" [(ngModel)]="frameworkName" placeholder="Enter framework name">
 <button (click)="addFramework()">Add Framework</button>
 
 <ul>
-  <li *ngFor="let framework of frameworkList">{{ framework }}</li>
+  <li *ngFor="let framework of frameworkList">
+    ID: {{ framework.id }} - Name: {{ framework.name }}
+    <button (click)="removeFramework(framework.id)">Remove</button>
+  </li>
 </ul>

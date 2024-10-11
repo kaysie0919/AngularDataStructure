@@ -1,8 +1,10 @@
 <p>Developer Tools List</p>
-<input type="text" [(ngModel)]="tool" placeholder="Enter tool name">
-
+<input type="text" [(ngModel)]="toolName" placeholder="Enter tool name">
 <button (click)="addTool()">Add Tool</button>
 
 <ul>
-  <li *ngFor="let tool of toolsList">{{ tool }}</li>
+  <li *ngFor="let tool of toolsList">
+    ID: {{ tool.id }} - Name: {{ tool.name }}
+    <button (click)="removeTool(tool.id)">Remove</button>
+  </li>
 </ul>

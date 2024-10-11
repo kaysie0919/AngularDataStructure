@@ -1,19 +1,36 @@
 import { Component } from '@angular/core';
+import { DevelopertoollistService } from '../services/developertoollist.service';
+import { Tool } from '../interface/developertoollist';
 
 @Component({
   selector: 'app-developertoolslist',
   templateUrl: './developertoolslist.component.html',
-  styleUrl: './developertoolslist.component.css'
+  styleUrls: ['./developertoolslist.component.css']
 })
 export class DevelopertoolslistComponent {
-  tool: string = '';
-  toolsList: string[] = ['Visual Studio Code', 'Git', 'Docker'];
+  toolName: string = '';
+  toolsList: Tool[] = [];
+  nextId: number = 1;
+
+  constructor(private toolsService: DevelopertoollistService) {
+    this.toolsList = this.toolsService.getToolsList();
+  }
 
   addTool() {
-    if (this.tool.trim()) {
-      this.toolsList.push(this.tool.trim());
-      this.tool = '';
+    if (this.toolName.trim()) {
+      const newTool: Tool = { id: this.nextId++, name: this.toolName.trim() };
+      this.toolsService.addTool(newTool);
+      this.updateToolsList();
+      this.toolName = '';
     }
   }
 
+  removeTool(id: number) {
+    this.toolsService.removeTool(id);
+    this.updateToolsList();
+  }
+
+  private updateToolsList() {
+    this.toolsList = this.toolsService.getToolsList();
+  }
 }

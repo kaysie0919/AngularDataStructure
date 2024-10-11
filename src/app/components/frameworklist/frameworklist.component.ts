@@ -1,19 +1,36 @@
 import { Component } from '@angular/core';
+import { FrameworklistService } from '../services/frameworklist.service';
+import { Framework } from '../interface/frameworklist';
 
 @Component({
   selector: 'app-frameworklist',
   templateUrl: './frameworklist.component.html',
-  styleUrl: './frameworklist.component.css'
+  styleUrls: ['./frameworklist.component.css']
 })
 export class FrameworklistComponent {
-  framework: string = '';
-  frameworkList: string[] = ['Angular', 'React', 'Vue.js'];
+  frameworkName: string = '';
+  frameworkList: Framework[] = [];
+  nextId: number = 1;
+
+  constructor(private frameworkService: FrameworklistService) {
+    this.frameworkList = this.frameworkService.getFrameworkList();
+  }
 
   addFramework() {
-    if (this.framework.trim()) {
-      this.frameworkList.push(this.framework.trim());
-      this.framework = '';
+    if (this.frameworkName.trim()) {
+      const newFramework: Framework = { id: this.nextId++, name: this.frameworkName.trim() };
+      this.frameworkService.addFramework(newFramework);
+      this.updateFrameworkList();
+      this.frameworkName = '';
     }
   }
 
+  removeFramework(id: number) {
+    this.frameworkService.removeFramework(id);
+    this.updateFrameworkList();
+  }
+
+  private updateFrameworkList() {
+    this.frameworkList = this.frameworkService.getFrameworkList();
+  }
 }
